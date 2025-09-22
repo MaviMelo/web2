@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', 100)->unique();
-            $table->timestamps();
+        Schema::table('books', function (Blueprint $table) {
+            $table->integer('published_year')->nullable();
         });
     }
 
@@ -23,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::table('books', function (Blueprint $table) {
+            //
+        });
     }
 };
