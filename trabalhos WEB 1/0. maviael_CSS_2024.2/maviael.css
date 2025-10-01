@@ -1,0 +1,235 @@
+/*
+Atividade acadêmica.
+    Instituição: Instituto Federal de Educação, Ciência e Tecnologia de Pernambuco (IFPE);
+    Disciplina: Desenvolvimento Web I;
+    Aluno(a): Maviael Melo;
+    Data: 26/11/2024.
+    
+    Atividade: Sua tarefa é usar HTML e CSS para construir uma paisagem de acordo com um tema de sua escolha. Alguns exemplos de temas são:  fazenda, praia, aquário ou espaço.
+
+Requisitos:
+
+    Escolha do Tema:Defina um tema para sua paisagem e construa elementos relacionados a ele.
+    Uso de Comandos CSS: Utilize propriedades de CSS como background, Gradientes (linear-gradient ou radial-gradient), Bordas (Aplique estilos variados e bordas arredondadas) 
+    Animações: GIFs Animadose e @keyframes
+    Transformações e Transições: Use transform e transition para mudanças suaves de estilo e posição.
+
+Instruções de Envio:
+
+    Nomeie seus arquivos: HTML: [SEU_NOME].html e CSS: [SEU_NOME].css
+    Compacte os arquivos em um ZIP e envie-o.
+
+Foque em explorar os comandos de CSS para criar uma paisagem visualmente interessante.
+*/
+
+.porDoSol {
+    background: linear-gradient(rgba(15, 48, 99, 0.836) 8%,rgb(251, 255, 1) 100%);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.sol {
+    width: 90px;
+    height: 90px;
+    background: radial-gradient(circle, rgba(255, 255, 0, 0.781) 30%,orange 100%);
+    border-radius: 50%;
+    position: absolute;
+    top: 55%;
+    left: 17%;
+    box-shadow: 0 0 50px rgba(255, 165, 0, 0.8);
+    animation: moverSol 50s infinite; /* Atribui a animação */
+}
+
+/* Animação do movimento do Sol*/
+@keyframes moverSol {
+    0% {
+        top: 80%; /* Sol nasce no horizonte */
+        left: 90%; /* Fora da tela à esquerda */
+    }
+    50% {
+        top: 10%; /* Ponto mais alto do céu */
+        left: 50%; /* Centro da tela */
+    }
+    100% {
+        top: 80%; /* Sol se põe no horizonte */
+        left: -1%; /* Fora da tela à direita */
+    }
+}
+
+.telhado {
+    width: 2%;
+    height: 0;
+    border-left: 55px solid transparent;
+    border-right: 55px solid transparent;
+    border-bottom: 55px solid rgb(94, 95, 1);
+    position: absolute;
+    bottom: 90%;
+    left: -11%;
+    
+}
+.casa{
+    width: 90px;
+    height: 70px;
+    background: rgba(183, 189, 181, 0.863);
+    position: absolute;
+    bottom: 7.7%;
+    left: 60%;
+    box-shadow: 0 0 50px rgba(255, 165, 0, 0.8);
+}
+.porta{
+    width: 25px;
+    height: 42px;
+    background: rgba(39, 58, 32, 0.863);
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+}
+
+.janela{
+    width: 25px;
+    height: 25px;
+    background: rgba(216, 223, 119, 0.863);
+    position: absolute;
+    top: 40%;
+    left: 60%;
+    animation: piscarJanela 3s infinite; /* Atribui a animação */
+}
+@keyframes piscarJanela {
+    0% {
+        background-color: rgba(152, 215, 219, 0.863); /* Cor inicial */
+    }
+    50% {
+        background-color: rgba(255, 255, 0, 0.863); /* Cor intermediária (piscando) */
+    }
+    100% {
+        background-color: rgba(240, 205, 205, 0.863); /* Volta à cor inicial */
+    }
+}
+
+.estrelas {
+    width: 4px; 
+    height: 4px;
+    background: white; 
+    border-radius: 50%; /* Para deixar as estrelas redondas */
+    position: absolute;
+    animation: piscarEstrela 2s infinite ease-in-out alternate;
+    opacity: 0; /* Começa invisível */
+}
+
+/* Animação para as estrelas piscarem */
+@keyframes piscarEstrela {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.4;
+    }
+}
+
+.montanha{
+    width: 5%;
+    height: 0;
+    border-left: 190px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 150px solid rgb(53, 54, 4);
+    position: absolute;
+    bottom: 30%;
+    left: 55%;
+    border-radius: 40%;
+}
+.gramado{
+    width: 102%;
+    height: 40%;
+    position: absolute;
+    background: radial-gradient(circle at 25% 8%, rgb(142, 216, 142), rgb(0, 49, 0));
+    animation: gradienteGramado 50s infinite;
+}
+/* animação do reflexo do sol no gramado */
+@keyframes gradienteGramado {
+    0% {
+        background: radial-gradient(circle at 90% 8%, rgb(142, 216, 142), rgb(0, 49, 0)); /* reflexo do sol nascente */
+    }
+    55% {
+        background: radial-gradient(circle at 50% 8%, rgb(142, 216, 142), rgb(0, 49, 0)); /* reflexo do sol a pino */
+    }
+    60% {
+        background: radial-gradient(circle at 45% 8%, rgb(142, 216, 142), rgb(0, 49, 0)); 
+    }
+    65% {
+        background: radial-gradient(circle at 25% 8%, rgb(142, 216, 142), rgb(0, 49, 0)); /* reflexo do sol poente */
+    }
+}
+
+.areaBalao {
+    width:100%;
+    height: 50%;    
+    background: rgba(238, 130, 238, 0.368);
+    position: absolute;
+    top: 10%;
+}
+.balao {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 235, 205, 0.39);
+    position: relative;
+    top: 60%;
+    left: 65%;
+}
+.bola {
+    width: 50px;
+    height: 50px;
+    border-radius: 80%;
+    background: linear-gradient(rgb(255, 47, 0) 20%,rgba(0, 255, 132, 0.818), rgba(220, 227, 8, 0.563)80%);
+    position: absolute;
+    top: 10px;
+    left: 25px;
+}
+.corda {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    border: 1px solid;
+    top: 55px;
+    left: 42px;
+}
+.fogo {
+    width: 8px;
+    height: 8px;
+    background-color: blanchedalmond;
+    border-radius: 50%;
+    position: absolute;
+    top: 50px;
+    left: 46px;
+    animation: piscarJanela 3s infinite;
+}
+.cesto {
+    width: 18px;
+    height: 10px;
+    position: absolute;
+    background-color: rgb(89, 154, 211);
+    border-radius: 10%;
+    top: 70px;
+    left: 41px;
+}
+
+#container {
+    width: 90%;
+    height: 60%;
+    position: absolute;
+    top: 0%;
+  }
+  
+  #divMovel {
+    position: relative;
+    color: white;
+
+   
+
+}

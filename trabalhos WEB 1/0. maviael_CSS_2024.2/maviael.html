@@ -1,0 +1,68 @@
+<!--
+    Atividade acadêmica.
+    Instituição: Instituto Federal de Educação, Ciência e Tecnologia de Pernambuco (IFPE);
+    Disciplina: Desenvolvimento Web I;
+    Aluno(a): Maviael Melo;
+    Data: 26/11/2024.
+    
+    Atividade: Sua tarefa é usar HTML e CSS para construir uma paisagem de acordo com um tema de sua escolha. Alguns exemplos de temas são:  fazenda, praia, aquário ou espaço.
+
+Requisitos:
+
+    Escolha do Tema:Defina um tema para sua paisagem e construa elementos relacionados a ele.
+    Uso de Comandos CSS: Utilize propriedades de CSS como background, Gradientes (linear-gradient ou radial-gradient), Bordas (Aplique estilos variados e bordas arredondadas) 
+    Animações: GIFs Animadose e @keyframes
+    Transformações e Transições: Use transform e transition para mudanças suaves de estilo e posição.
+
+Instruções de Envio:
+
+    Nomeie seus arquivos: HTML: [SEU_NOME].html e CSS: [SEU_NOME].css
+    Compacte os arquivos em um ZIP e envie-o.
+
+Foque em explorar os comandos de CSS para criar uma paisagem visualmente interessante.
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">   
+    <title>Exercício CSS</title>
+
+    <link rel="stylesheet" href="maviael.css">
+</head>
+<body class="porDoSol">
+    <div>
+        <div class="estrelas" style="top: 10%; left: 10%; animation-delay: 1.5s;"></div>
+        <div class="estrelas" style="top: 15%; left: 35%;"></div>
+        <div class="estrelas" style="top: 12%; left: 60%; animation-delay: 0.5s;"></div>
+        <div class="estrelas" style="top: 25%; left: 70%; animation-delay: 0.8s;"></div>
+        <div class="estrelas" style="top: 5%; left: 85%; animation-delay: 1.3s;"></div>
+    </div>
+    <div class="sol"></div>
+
+    <div id="container">
+        <div id="divMovel">
+            <div class="corda"></div>
+            <div class="fogo"></div>
+            <div class="cesto"></div>
+            <div class="bola"></div>
+        </div>       
+    </div>
+
+    
+    <div class="gramado"></div>  
+    <div class="montanha"></div>
+    <div class="casa">
+        <div class="telhado"></div>
+        <div class="porta"></div>
+        <div class="janela"></div>
+    </div>
+    <div class="casa" style="background-color: rgb(62, 121, 121); top: 80%; left: 80%;">
+        <div class="telhado"></div>
+        <div class="porta"></div>
+        <div class="janela" style="animation-delay: 1s;"></div>
+    </div>
+    
+       <script src="maviael.js"></script>
+</body>
+</html>
