@@ -12,9 +12,22 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
  
 </head>
+
+    <nav>
+        <h2>Atividade 02</h2>
+        <div>
+            <a href="{{ url('/') }}">Home </a>
+            <div class="dropdown">
+                <button class="dropbtn">Opções <i class="bi bi-three-dots-vertical"></i></button>
+                <div class="dropdown-content">
+                    <a href="{{ route('home_offices.index') }}">Lista de Colaboradores</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 <body>
     <h1>Adicionar Resgistro de Home Office</h1>
-    <form action="{{ route('home_offices.store') }}" method="POST">
+    <form class="form" action="{{ route('home_offices.store') }}" method="POST">
         @csrf
         <div >
             <label for="collaborator" >Nome do colaborador:</label>
@@ -23,7 +36,7 @@
 
         <div >
         <label for="address" >Endereço: </label>
-            <input type="text" placeholder="preencha os dados." id="address" name="address" required>            
+        <input type="text" placeholder="preencha os dados." id="address" name="address" required>            
         </div>
 
         <div >

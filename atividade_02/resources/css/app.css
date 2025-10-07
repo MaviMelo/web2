@@ -1,4 +1,4 @@
- @import 'tailwindcss';
+ @import 'tailwindcss'; 
 
  @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
  @source '../../storage/framework/views/*.php';
@@ -41,11 +41,11 @@
      /* Definição de variáveis para padronização de customização */
      --cor-primaria: #007bff;
      --cor-sucesso: #28a745;
-     --cor-alerta: #f27878ec;
+     --cor-alerta: #dd1414ec;
      --cor-fundo: #f4f7f9;
      --cor-titulo: #19802a;
      --cor-texto: #333;
-     --cor-botao: #6fb279;
+     --cor-botao: #eddb0d;
      --cor-borda: #b1cce2;
      --cor-sombra: rgba(0, 0, 0, 0.568);
      --raio-borda: 8px;
@@ -61,8 +61,7 @@
      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
      background-color: var(--cor-fundo);
      color: var(--cor-texto);
-     margin: 0;
-     padding: 2rem;
+     padding: 10rem 2rem 2rem 2rem;
  }
 
  /* -- Etilos dos titulos e paragrafos -- */
@@ -131,7 +130,7 @@
 
 
  /* --- ESTILOS PARA FORMULÁRIOS --- */
- form {
+ .form {
      background: var(--cor-card);
      padding: 2.5rem;
      border-radius: var(--raio-borda);
@@ -181,40 +180,49 @@
  }
 
  /* --- ESTILOS PARA BOTÕES --- */
- button[type="submit"] {
-     margin: 10px;
-     display: inline-flex;
-     align-items: center;
-     justify-content: center;
-     padding: 0.8rem 1.5rem;
-     border: none;
-     border-radius: 20px;
-     font-size: 1rem;
-     font-weight: 600;
-     cursor: pointer;
-     color: rgb(14, 71, 86);
-     background-color: var(--cor-botao);
-     /* Cor padrão para botões de submissão */
-     transition: background-color 0.2s, transform 0.2s;
- }
+ 
+ @layer components{
 
- button:hover,
- input[type="submit"]:hover {
-     filter: brightness(110%);
+     
+    button[type="submit"] {
+         margin: 0.5rem;
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         padding: 0.3rem 0.5rem;
+         border: none;
+         border-radius: 20px;
+         font-size: 1rem;
+         font-weight: 600;
+         cursor: pointer;
+         color: rgb(14, 71, 86);
+         background-color: var(--cor-botao);
+         /* Cor padrão para botões de submissão */
+         transition: background-color 0.2s, transform 0.2s;
+        }
+        
+        .btn:hover,
+        button:hover,
+        input[type="submit"]:hover {
+            filter: brightness(110%);
      color: #fff;
      background-color: #218838;
      transform: translateY(-2px);
      /* Leve elevação */
- }
-
-
- /* Estilo para ícones dentro de botões */
- button i {
+    }
+    
+    .delete:Hover {
+        background-color: var(--cor-alerta);
+    }
+}
+    
+    /* Estilo para ícones dentro de botões */
+    button i {
      margin-right: 0.5rem;
      margin-left: 0.5rem;
  }
 
- /*-------------------*/
+ /*-------Cards--------*/
 
  .card {
      display: inline-block;
@@ -226,7 +234,7 @@
      border-radius: 10px;
  }
 
- /*----------------------*/
+ /*-------Tabelas--------*/
 
  table {
      border-collapse: separate;
@@ -240,13 +248,98 @@
  td {
      padding: 3px;
      border: solid 1px;
-    border-radius: 10px;
+     border-radius: 10px;
  }
 
-td {
-    background-color: #ffffffec;
-}
+ td {
+     background-color: #ffffffec;
+ }
 
- th{
-    background-color: var(--cor-card);
+ th {
+     background-color: var(--cor-card);
+ }
+
+ /* ---- Ocultar dados ----- */
+
+ .hide {
+     opacity: 0;
+     transition: all 2s ease;
+
+ }
+
+ .hide:hover {
+     opacity: 1;
+ }
+
+ /* ------ Mav Bar ------*/
+
+ nav {
+     background-image: linear-gradient(to top, #3dff54c7, rgb(91, 162, 255));
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     display: flex;
+     width: 100%;
+     height: 6rem;
+     border-bottom: solid 3px #00ff4c87;
+     padding: 0 10px;
+     margin: 0px 0px 10px 0px;
+
+     /* Alinhamento com flexbox */
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+
+ }
+
+ nav>div {
+     display: flex;
+     align-items: center;
+     /* Alinha o link "Home" e o botão "Opções" */
+     gap: 15px;
+     /* Adiciona um espaço entre o link e o botão */
+ }
+
+ /* ------ Dropdown Menu ------ */
+
+ .dropbtn {
+     background-color: #4CAF50;
+     color: white;
+     padding: 10px;
+     border: none;
+     border-radius: 10px;
+     cursor: pointer;
+ }
+
+ .dropdown {
+     right: 10px;
+     position: relative;
+ }
+
+ .dropdown-content {
+     display: none;
+     position: absolute;
+     right: 0;
+     background-color: #f9f9f9;
+     min-width: 200px;
+     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+ }
+
+ .dropdown-content a {
+     padding: 12px 16px;
+     text-decoration: none;
+     display: flex;
+ }
+
+ .dropdown-content a:hover {
+     background-color: #ece1e1;
+ }
+
+ .dropdown:hover .dropdown-content {
+     display: block;
+ }
+
+ .dropdown:hover .dropbtn {
+     background-color: #3e8e41;
  }
