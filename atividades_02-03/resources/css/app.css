@@ -1,4 +1,4 @@
- @import 'tailwindcss'; 
+ @import 'tailwindcss';
 
  @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
  @source '../../storage/framework/views/*.php';
@@ -180,10 +180,10 @@
  }
 
  /* --- ESTILOS PARA BOTÕES --- */
- 
+
  @layer components{
 
-     
+
     button[type="submit"] {
          margin: 0.5rem;
          display: inline-flex;
@@ -200,7 +200,7 @@
          /* Cor padrão para botões de submissão */
          transition: background-color 0.2s, transform 0.2s;
         }
-        
+
         .btn:hover,
         button:hover,
         input[type="submit"]:hover {
@@ -210,12 +210,12 @@
      transform: translateY(-2px);
      /* Leve elevação */
     }
-    
+
     .delete:Hover {
         background-color: var(--cor-alerta);
     }
 }
-    
+
     /* Estilo para ícones dentro de botões */
     button i {
      margin-right: 0.5rem;
@@ -246,6 +246,7 @@
 
  th,
  td {
+     text-align: center;
      padding: 3px;
      border: solid 1px;
      border-radius: 10px;

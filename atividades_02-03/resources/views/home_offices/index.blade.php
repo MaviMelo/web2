@@ -43,7 +43,7 @@
                 <th>Início de trabalho Remoto</th>
                 <th>Opções</th>
             </tr>
-            @foreach($home_offices as $home_office)
+            @forelse($home_offices as $home_office)
             <tr>
                 <td>{{ $home_office-> id }}</td>
                 <td>{{ $home_office-> collaborator }}</td>
@@ -62,7 +62,11 @@
                     </form>
                 </td>
             </tr>
-            @endforeach
+            @empty
+            <tr>
+                <td colspan="8">Nenhum registro econtrado. Adicione registros à base de dados primeiro.</td>
+            </tr>
+            @endforelse
         </table>
     </main>
 </body>
