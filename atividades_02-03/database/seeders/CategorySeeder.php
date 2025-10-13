@@ -15,6 +15,8 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
          $categories = [
+            'Infantil',
+            'Romance',
             'Ficção',
             'Não-ficção',
             'Fantasia',

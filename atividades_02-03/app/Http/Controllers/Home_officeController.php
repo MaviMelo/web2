@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Home_office; 
+use App\Models\Home_office;
 
-class Home_officeController extends Controller 
+class Home_officeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,7 +22,22 @@ class Home_officeController extends Controller
      */
     public function create()
     {
-        return view('home_offices.create');
+        $data_object = null;
+
+        if (session()->has('last_data')){
+            $data_json = session('last_data');
+            $id = (int) $data_json['id'];     // or   intval($data_json['id'])
+            $data_object = Home_office::find($id);
+
+            session()->forget('last_data');
+
+            # Depuração:
+            /*
+            echo "Último registro adicionado: " . $data_json['id']. ";" . " Nome: {$data_json['collaborator'] }";
+            dd ($data_object);
+            */
+        }
+            return view('home_offices.create', compact('data_object'));
     }
 
     /**
@@ -30,9 +45,16 @@ class Home_officeController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request-all());
-        Home_office::create ($request->all());
-        return redirect()->route('home_offices.create');
+        // dd($request->all());
+        $home_office = Home_office::create ($request->all());
+        // $lastId = Home_office::latest()->first();
+
+        $sessionData = [
+            'id' => $home_office->id,
+            'collaborator' => $home_office->collaborator
+        ];
+
+        return redirect()->route('home_offices.create')->with('last_data', $sessionData);
     }
 
     /**
@@ -57,7 +79,7 @@ class Home_officeController extends Controller
     public function update(Request $request, Home_office $home_office)
     {
         $home_office -> update($request->all());
-        return redirect()->route('home_offices.create');
+        return redirect()->route('home_offices.show', compact('home_office'));
     }
 
     /**
