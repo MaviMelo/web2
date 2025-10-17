@@ -26,4 +26,9 @@ class Book extends Model
         $this-> belongsTo(Publisher::class);
     }
 
+    /** @public relacionamento com model da tabela users através da tabela pivô/intermediária borrowings */
+    public function books()
+    {
+        return $this->bilongsToMany(Book::class, 'borrowings')->witnPivot('borrowed_at', 'returned_at')->withTimestamps();
+    }
 }
