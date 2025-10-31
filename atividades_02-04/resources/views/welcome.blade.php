@@ -162,6 +162,73 @@
 
         </div>
 
+                <div class="card">
+
+            <h4>Atividade 04 - Inclusão de Relacionamento N para N Empréstimo + Uso do Eloquent para Criação e Manipulação de Relacionamentos no Sistema de Biblioteca</h4>
+            <p>
+                .
+            </p>
+            <h6>Tarefa: </h6>
+            <p>
+                .
+            </p>
+            <h5>Resolução da atividade:</h5>
+            <p>
+               .
+            </p>
+            <p>
+
+            </p>
+            <lu>
+                <li>
+                    <p>
+                        Ver todos os registros dessa atividade no GitHub (Commit):
+                        <a href="https://github.com/MaviMelo/web2/commit/ab5bbfe48f73dd13dc93b8068ca2c25ad73ffaba" target="_blank">
+                                MaviMelo/web2 <i class="bi bi-arrow-up-right-square"></i>
+                        </a>
+                    </p>
+                </li>
+            </lu>
+
+        </div>
+
+                <div class="card">
+
+            <h4>Atividade 05 - Controllers, Views e Rotas dos CRUDs de Author, Category, Publisher e Book</h4>
+            <p>
+                O objetivo desta atividade ...
+            </p>
+
+            <h5>Resolução da atividade:</h5>
+            <p>
+               .
+            </p>
+            <p>
+
+            </p>
+            <lu>
+
+                 <li>
+                    <p>
+                        Ver todos os registros:
+                        <a href="{{ route('categories.index') }}">
+                            index <i class="bi bi-arrow-up-right-square"></i>
+                        </a>
+                    </p>
+                </li>
+
+                <li>
+                    <p>
+                        Ver todos os registros dessa atividade no GitHub (Commit):
+                        <a href="https://github.com/MaviMelo/web2/commit/78c8cb36a71bf583c2ce7b7d4da3043fdb92cbbe" target="_blank">
+                                MaviMelo/web2 <i class="bi bi-arrow-up-right-square"></i>
+                        </a>
+                    </p>
+                </li>
+            </lu>
+
+        </div>
+
     </main>
 
 </body>
