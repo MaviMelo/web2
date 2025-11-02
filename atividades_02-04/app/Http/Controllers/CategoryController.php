@@ -33,7 +33,7 @@ class categoryController extends Controller
             'name' => 'required|string|unique:categories|max:255',
         ]);
 
-        category::create($request->all());
+        Category::create($request->all());
 
         return redirect()->route('categories.index')->with('success', 'Categoria criada com sucesso.');
 
@@ -44,7 +44,7 @@ class categoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view ('categories.edit', compact('category'));
+        return view ('categories.show', compact('category'));
     }
 
     /**

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Web 2</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -210,17 +210,49 @@
 
                  <li>
                     <p>
-                        Ver todos os registros:
+                        Categories:
                         <a href="{{ route('categories.index') }}">
+                            index <i class="bi bi-arrow-up-right-square"></i>
+                        </a>, 
+                        <a href="{{ route('categories.create') }}">
+                            create <i class="bi bi-arrow-up-right-square"></i>
+                        </a>
+                    </p>
+                </li>
+                 <li>
+                    <p>
+                        Authors:
+                        <a href="{{ route('authors.index') }}">
+                            index <i class="bi bi-arrow-up-right-square"></i>
+                        </a>, 
+                        <a href="{{ route('authors.create') }}">
+                            create <i class="bi bi-arrow-up-right-square"></i>
+                        </a>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Publishers:
+                        <a href="{{ route('publishers.index') }}">
+                            index <i class="bi bi-arrow-up-right-square"></i>
+                        </a>, 
+                        <a href="{{ route('publishers.create') }}">
+                            create <i class="bi bi-arrow-up-right-square"></i>
+                        </a>
+                    </p>
+                </li>
+                <li>
+                    <p> 
+                        Books:
+                        <a href="{{ route('books.index') }}">
                             index <i class="bi bi-arrow-up-right-square"></i>
                         </a>
                     </p>
                 </li>
-
                 <li>
                     <p>
                         Ver todos os registros dessa atividade no GitHub (Commit):
-                        <a href="https://github.com/MaviMelo/web2/commit/78c8cb36a71bf583c2ce7b7d4da3043fdb92cbbe" target="_blank">
+                        <a href="https://github.com/MaviMelo/web2/commit/c86655ee7d00009613a62564db358216110bb3de" target="_blank">
                                 MaviMelo/web2 <i class="bi bi-arrow-up-right-square"></i>
                         </a>
                     </p>
