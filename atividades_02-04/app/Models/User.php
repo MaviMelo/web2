@@ -49,7 +49,7 @@ class User extends Authenticatable
     /** @public relacionamento com model da tabela books da tabela pivô/intermediária borrowings */
     public function books()
     {
-        return $this->bilongsToMany(Book::class, 'borrowings')->witnPivot('borrowed_at', 'returned_at')->withTimestamps();
+        return $this->belongsToMany(Book::class, 'borrowings')->withPivot('id','borrowed_at', 'returned_at')->withTimestamps();
     }
 
 }

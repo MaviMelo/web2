@@ -52,15 +52,17 @@
                     <P>
                         Documentação oficial do PHP:
                         <a href="https://www.php.net/manual/pt_BR/language.basic-syntax.php" target="_blank">
-                           Manual PHP <i class="bi bi-arrow-up-right-square"></i>
+                            Manual PHP <i class="bi bi-arrow-up-right-square"></i>
                         </a>
                     </P>
                 </li>
                 <li>
                     <P>
-                        Faker é uma biblioteca PHP que gera dados falsos para você. Seja para inicializar seu banco de dados, criar documentos XML atraentes, preencher sua persistência para testes de estresse ou tornar anônimos dados obtidos de um serviço de produção:
+                        Faker é uma biblioteca PHP que gera dados falsos para você. Seja para inicializar seu banco de
+                        dados, criar documentos XML atraentes, preencher sua persistência para testes de estresse ou
+                        tornar anônimos dados obtidos de um serviço de produção:
                         <a href="https://fakerphp.github.io/" target="_blank">
-                           Faker PHP Documentation <i class="bi bi-arrow-up-right-square"></i>
+                            Faker PHP Documentation <i class="bi bi-arrow-up-right-square"></i>
                         </a>
                     </P>
                 </li>
@@ -72,11 +74,14 @@
 
             <h4>Atividade 01 - Migrations no Laravel</h4>
             <p>
-                Use <strong> migrations </strong> no Laravel para criar, modificar e gerenciar a estrutura de tabelas no banco de dados. A atividade envolve a criação de tabelas, aplicação de constraints e definição de relacionamentos entre elas.
+                Use <strong> migrations </strong> no Laravel para criar, modificar e gerenciar a estrutura de tabelas no
+                banco de dados. A atividade envolve a criação de tabelas, aplicação de constraints e definição de
+                relacionamentos entre elas.
             </p>
             <h6>Tarefa: Gerenciamento de um Sistema de Biblioteca</h6>
             <p>
-                Nesta atividade, deverá ser criado um sistema básico de gerenciamento de biblioteca que inclui tabelas para <strong> Books, Categories, Publishers </strong> e <strong> Authors </strong>.
+                Nesta atividade, deverá ser criado um sistema básico de gerenciamento de biblioteca que inclui tabelas
+                para <strong> Books, Categories, Publishers </strong> e <strong> Authors </strong>.
             </p>
             <h5>Resolução da atividade:</h5>
             <p>
@@ -89,8 +94,9 @@
                 <li>
                     <p>
                         Ver todos os registros dessa atividade no GitHub (Commit):
-                        <a href="https://github.com/MaviMelo/web2/commit/c5d3c2c9479eccbc92611d16a37a346d5bdf489e" target="_blank">
-                                MaviMelo/web2 <i class="bi bi-arrow-up-right-square"></i>
+                        <a href="https://github.com/MaviMelo/web2/commit/c5d3c2c9479eccbc92611d16a37a346d5bdf489e"
+                            target="_blank">
+                            MaviMelo/web2 <i class="bi bi-arrow-up-right-square"></i>
                         </a>
                     </p>
                 </li>
@@ -136,15 +142,19 @@
 
             <h4>Atividade 03 - Models, Seeds e Factories no Laravel</h4>
             <p>
-                O objetivo desta atividade é entender como criar modelos, configurar relacionamentos, utilizar seeds e factories no Laravel para popular o banco de dados com dados predefinidos e fake.
+                O objetivo desta atividade é entender como criar modelos, configurar relacionamentos, utilizar seeds e
+                factories no Laravel para popular o banco de dados com dados predefinidos e fake.
             </p>
             <h6>Tarefa: Popular o Sistema de Gerenciamento de Biblioteca</h6>
             <p>
-                Nesta atividade, você irá criar os modelos para <strong> Book, Category, Publisher </strong> e <strong> Author </strong>, configurar os relacionamentos entre eles e usar factories para gerar melhares de registros de livros e autores utilizando dados fake.
+                Nesta atividade, você irá criar os modelos para <strong> Book, Category, Publisher </strong> e <strong>
+                    Author </strong>, configurar os relacionamentos entre eles e usar factories para gerar melhares de
+                registros de livros e autores utilizando dados fake.
             </p>
             <h5>Resolução da atividade:</h5>
             <p>
-                Models, Seeds, e Factories foram criados. As Migrations já criadas e de acordo com os requisitos para fucionar com o que se pede na atividade.
+                Models, Seeds, e Factories foram criados. As Migrations já criadas e de acordo com os requisitos para
+                fucionar com o que se pede na atividade.
             </p>
             <p>
 
@@ -153,8 +163,9 @@
                 <li>
                     <p>
                         Ver todos os registros dessa atividade no GitHub (Commit):
-                        <a href="https://github.com/MaviMelo/web2/commit/78c8cb36a71bf583c2ce7b7d4da3043fdb92cbbe" target="_blank">
-                                MaviMelo/web2 <i class="bi bi-arrow-up-right-square"></i>
+                        <a href="https://github.com/MaviMelo/web2/commit/78c8cb36a71bf583c2ce7b7d4da3043fdb92cbbe"
+                            target="_blank">
+                            MaviMelo/web2 <i class="bi bi-arrow-up-right-square"></i>
                         </a>
                     </p>
                 </li>
@@ -162,29 +173,20 @@
 
         </div>
 
-                <div class="card">
+        <div class="card">
 
             <h4>Atividade 04 - Inclusão de Relacionamento N para N Empréstimo + Uso do Eloquent para Criação e Manipulação de Relacionamentos no Sistema de Biblioteca</h4>
             <p>
-                .
-            </p>
-            <h6>Tarefa: </h6>
-            <p>
-                .
+                Objetivo: construir e manipular um sistema de gerenciamento de biblioteca utilizando o Laravel e seu ORM, o Eloquent. A atividade inclui a criação das tabelas no banco de dados, a implementação dos relacionamentos entre as entidades e a manipulação de dados por meio de consultas avançadas (<strong> utilizar o Tinker</strong>) e funções de agregação.
             </p>
             <h5>Resolução da atividade:</h5>
-            <p>
-               .
-            </p>
-            <p>
-
-            </p>
             <lu>
                 <li>
                     <p>
                         Ver todos os registros dessa atividade no GitHub (Commit):
-                        <a href="https://github.com/MaviMelo/web2/commit/ab5bbfe48f73dd13dc93b8068ca2c25ad73ffaba" target="_blank">
-                                MaviMelo/web2 <i class="bi bi-arrow-up-right-square"></i>
+                        <a href="https://github.com/MaviMelo/web2/commit/ab5bbfe48f73dd13dc93b8068ca2c25ad73ffaba"
+                            target="_blank">
+                            MaviMelo/web2 <i class="bi bi-arrow-up-right-square"></i>
                         </a>
                     </p>
                 </li>
@@ -192,39 +194,30 @@
 
         </div>
 
-                <div class="card">
+        <div class="card">
 
             <h4>Atividade 05 - Controllers, Views e Rotas dos CRUDs de Author, Category, Publisher e Book</h4>
-            <p>
-                O objetivo desta atividade ...
-            </p>
-
+        </br>
             <h5>Resolução da atividade:</h5>
-            <p>
-               .
-            </p>
-            <p>
-
-            </p>
             <lu>
 
-                 <li>
+                <li>
                     <p>
                         Categories:
                         <a href="{{ route('categories.index') }}">
                             index <i class="bi bi-arrow-up-right-square"></i>
-                        </a>, 
+                        </a>,
                         <a href="{{ route('categories.create') }}">
                             create <i class="bi bi-arrow-up-right-square"></i>
                         </a>
                     </p>
                 </li>
-                 <li>
+                <li>
                     <p>
                         Authors:
                         <a href="{{ route('authors.index') }}">
                             index <i class="bi bi-arrow-up-right-square"></i>
-                        </a>, 
+                        </a>,
                         <a href="{{ route('authors.create') }}">
                             create <i class="bi bi-arrow-up-right-square"></i>
                         </a>
@@ -235,14 +228,14 @@
                         Publishers:
                         <a href="{{ route('publishers.index') }}">
                             index <i class="bi bi-arrow-up-right-square"></i>
-                        </a>, 
+                        </a>,
                         <a href="{{ route('publishers.create') }}">
                             create <i class="bi bi-arrow-up-right-square"></i>
                         </a>
                     </p>
                 </li>
                 <li>
-                    <p> 
+                    <p>
                         Books:
                         <a href="{{ route('books.index') }}">
                             index <i class="bi bi-arrow-up-right-square"></i>
@@ -252,8 +245,63 @@
                 <li>
                     <p>
                         Ver todos os registros dessa atividade no GitHub (Commit):
-                        <a href="https://github.com/MaviMelo/web2/commit/c86655ee7d00009613a62564db358216110bb3de" target="_blank">
-                                MaviMelo/web2 <i class="bi bi-arrow-up-right-square"></i>
+                        <a href="https://github.com/MaviMelo/web2/commit/2b3fa2bf74a969d080b745eba1c61a42e3131f5d"
+                            target="_blank">
+                            MaviMelo/web2 <i class="bi bi-arrow-up-right-square"></i>
+                        </a>
+                    </p>
+                </li>
+            </lu>
+
+        </div>
+
+        <div class="card">
+
+            <h4>Atividade 6.1 - Criar o Controller e as Views da entidade User</h4>
+            <p>
+                Objetivo: criar o controller de users e as operações de index, show e edit. Estas operações serão necessárias para construirmos o sistema de empréstimos na próxima atividade.
+            </p>
+            <h5>Resolução da atividade:</h5>
+            <lu>
+                <li>
+                    <p>
+                        Users:
+                        <a href="{{ route('users.index') }}">
+                            index <i class="bi bi-arrow-up-right-square"></i>
+                        </a>
+                    </p>
+                </li>
+            </lu>
+            </br>
+            <h4>Atividade 6.2 - Sistema de Empréstimo (simplificado)</h4>
+            <p>
+                Objetivo: implementar o sistema de empréstimos no projeto de biblioteca. Serão criadas rotas, um controlador dedicado (BorrowingController), e as funcionalidades de registrar empréstimos, devoluções e exibir históricos de empréstimos em livros e usuários.
+            </p>
+
+            <h5>Resolução da atividade:</h5>
+            <lu>
+                <li>
+                    <p>
+                        Books com histórico de emprestimo de livros:
+                        <a href="{{ route('books.index') }}">
+                            index <i class="bi bi-arrow-up-right-square"></i>
+                        </a>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Users com histórico de impréstimos de um determinado usuário:
+                        <a href="{{ route('users.index') }}">
+                            index <i class="bi bi-arrow-up-right-square"></i>
+                        </a>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Ver todos os registros dessa atividade no GitHub (Commit):
+                        <a href="https://github.com/MaviMelo/web2/commit/2b3fa2bf74a969d080b745eba1c61a42e3131f5d"
+                            target="_blank">
+                            MaviMelo/web2 <i class="bi bi-arrow-up-right-square"></i>
                         </a>
                     </p>
                 </li>
