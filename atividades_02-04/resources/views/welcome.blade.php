@@ -175,9 +175,13 @@
 
         <div class="card">
 
-            <h4>Atividade 04 - Inclusão de Relacionamento N para N Empréstimo + Uso do Eloquent para Criação e Manipulação de Relacionamentos no Sistema de Biblioteca</h4>
+            <h4>Atividade 04 - Inclusão de Relacionamento N para N Empréstimo + Uso do Eloquent para Criação e
+                Manipulação de Relacionamentos no Sistema de Biblioteca</h4>
             <p>
-                Objetivo: construir e manipular um sistema de gerenciamento de biblioteca utilizando o Laravel e seu ORM, o Eloquent. A atividade inclui a criação das tabelas no banco de dados, a implementação dos relacionamentos entre as entidades e a manipulação de dados por meio de consultas avançadas (<strong> utilizar o Tinker</strong>) e funções de agregação.
+                Objetivo: construir e manipular um sistema de gerenciamento de biblioteca utilizando o Laravel e seu
+                ORM, o Eloquent. A atividade inclui a criação das tabelas no banco de dados, a implementação dos
+                relacionamentos entre as entidades e a manipulação de dados por meio de consultas avançadas (<strong>
+                    utilizar o Tinker</strong>) e funções de agregação.
             </p>
             <h5>Resolução da atividade:</h5>
             <lu>
@@ -197,7 +201,7 @@
         <div class="card">
 
             <h4>Atividade 05 - Controllers, Views e Rotas dos CRUDs de Author, Category, Publisher e Book</h4>
-        </br>
+            </br>
             <h5>Resolução da atividade:</h5>
             <lu>
 
@@ -259,7 +263,8 @@
 
             <h4>Atividade 6.1 - Criar o Controller e as Views da entidade User</h4>
             <p>
-                Objetivo: criar o controller de users e as operações de index, show e edit. Estas operações serão necessárias para construirmos o sistema de empréstimos na próxima atividade.
+                Objetivo: criar o controller de users e as operações de index, show e edit. Estas operações serão
+                necessárias para construirmos o sistema de empréstimos na próxima atividade.
             </p>
             <h5>Resolução da atividade:</h5>
             <lu>
@@ -275,7 +280,9 @@
             </br>
             <h4>Atividade 6.2 - Sistema de Empréstimo (simplificado)</h4>
             <p>
-                Objetivo: implementar o sistema de empréstimos no projeto de biblioteca. Serão criadas rotas, um controlador dedicado (BorrowingController), e as funcionalidades de registrar empréstimos, devoluções e exibir históricos de empréstimos em livros e usuários.
+                Objetivo: implementar o sistema de empréstimos no projeto de biblioteca. Serão criadas rotas, um
+                controlador dedicado (BorrowingController), e as funcionalidades de registrar empréstimos, devoluções e
+                exibir históricos de empréstimos em livros e usuários.
             </p>
 
             <h5>Resolução da atividade:</h5>
@@ -299,7 +306,7 @@
                 <li>
                     <p>
                         Ver todos os registros dessa atividade no GitHub (Commit):
-                        <a href="https://github.com/MaviMelo/web2/commit/2b3fa2bf74a969d080b745eba1c61a42e3131f5d"
+                        <a href="https://github.com/MaviMelo/web2/commit/a81ca842cc28fe4e00e0301fba4c94432fd9418e"
                             target="_blank">
                             MaviMelo/web2 <i class="bi bi-arrow-up-right-square"></i>
                         </a>
@@ -308,7 +315,46 @@
             </lu>
 
         </div>
+        <div class="card">
 
+            <h4>Atividade 7 - Upload de imagem para capa do livro</h4>
+            <p>
+                Nesta atividade você deve permitir que o usuário faça upload de uma imagem de capa para o livro ao
+                cadastrar um novo livro.
+                Verifique a documentação do sistema de arquivos do Laravel: <a href="https://laravel.com/docs/12.x/filesystem">File Storage</a>
+                <br><br>
+
+                Lembre dos seguintes pontos:
+                A imagem é opcional. O que fazer quando um livro não tem imagem de capa? Deixar me branco, inserir uma
+                imagem padrão.. ?
+                Permitir que edição do livro seja possível trocar a imagem de capa. (lembrar de remover do storage a
+                imagem anterior)
+                Ao deletar um livro a sua imagem de capa também deve ser deletada do sistema de arquivos.
+                Talvez precise adaptar o sistema de seeds (AuthorPublisherBookSeeder).
+            </p>
+
+            <h5>Resolução da atividade:</h5>
+            <lu>
+                <li>
+                    <p>
+                        Books com histórico de emprestimo de livros:
+                        <a href="{{ route('books.index') }}">
+                            index <i class="bi bi-arrow-up-right-square"></i>
+                        </a>
+                    </p>
+                </li>
+                <li>
+               <!-- <p>
+                        Ver todos os registros dessa atividade no GitHub (Commit):
+                        <a href="https://github.com/MaviMelo/web2/commit/a81ca842cc28fe4e00e0301fba4c94432fd9418e"
+                            target="_blank">
+                            MaviMelo/web2 <i class="bi bi-arrow-up-right-square"></i>
+                        </a>
+                    </p> -->
+                </li>
+            </lu>
+
+        </div>
     </main>
 
 </body>
