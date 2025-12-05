@@ -344,13 +344,13 @@
                     </p>
                 </li>
                 <li>
-               <!-- <p>
+               <p>
                         Ver todos os registros dessa atividade no GitHub (Commit):
-                        <a href="https://github.com/MaviMelo/web2/commit/a81ca842cc28fe4e00e0301fba4c94432fd9418e"
+                        <a href="https://github.com/MaviMelo/web2/commit/73c48a01d03c64a5d110ae7fc3dc7e9eda1b520b"
                             target="_blank">
                             MaviMelo/web2 <i class="bi bi-arrow-up-right-square"></i>
                         </a>
-                    </p> -->
+                    </p>
                 </li>
             </lu>
 
