@@ -22,5 +22,7 @@ class UserBorrowingSeeder extends Seeder
                 'book_id' => Book::inRandomOrder()->first()->id,
             ]);
         });
+    
+        
     }
 }
