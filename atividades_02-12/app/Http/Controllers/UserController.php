@@ -17,16 +17,29 @@ class UserController extends Controller
 
         $users = User::paginate(10); // Paginação de 10 usuários por página
 
+            if ( !in_array( auth()->user()->role, ['admin', 'librarian'])){
+                abort(403, 'Acesso não autorizado. Apenas funcionários.');
+            };
+
         return view('users.index', compact('users'));
+
     }
 
     public function show(User $user)
     {
+        if ( !in_array( auth()->user()->role, ['admin', 'librarian'])){
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        };
+
         return view('users.show', compact('user'));
     }
 
     public function edit(User $user)
     {
+        if ( !in_array( auth()->user()->role, ['admin', 'librarian'])){
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        };
+
         return view('users.edit', compact('user'));
     }
 
@@ -34,10 +47,14 @@ class UserController extends Controller
     {
         // $user->update($request->only('name', 'email', ' role'));
 
+        if ( !in_array( auth()->user()->role, ['admin', 'librarian'])){
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        };
+
         $validate = $request->validate([
             'name'=>'required|string|max:255',
             'email'=>'required|email|unique:users,email,' . $user->id,
-            'role'=>'required|in:admin,librarian,client' // Só aceita esses valores (ENUM do Banco de dados). 
+            // 'role'=>'required|in:admin,librarian,client' // Só aceita esses valores (ENUM do Banco de dados). 
         ]);
 
         $user->update($validate);

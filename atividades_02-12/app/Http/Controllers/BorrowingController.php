@@ -14,6 +14,10 @@ class BorrowingController extends Controller
 {
     public function store(Request $request, Book $book)
     {
+        if (! in_array(auth()->user()->role, ['admin', 'librarian'])) {
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        }
+
         $request->validate([
             'user_id' => 'required|exists:users,id',
         ]);
@@ -30,6 +34,10 @@ registrado com sucesso.');
 
     public function returnBook(Borrowing $borrowing)
     {
+        if (! in_array(auth()->user()->role, ['admin', 'librarian'])) {
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        }
+
         $borrowing->update(['returned_at' => now(),
         ]);
 

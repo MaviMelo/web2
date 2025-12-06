@@ -14,12 +14,20 @@ class BookController extends Controller
     // Formulário com input de ID
     public function createWithId()
     {
+        if (! in_array(auth()->user()->role, ['admin', 'librarian'])) {
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        }
+
         return view('books.create-id');
     }
 
     // Salvar livro com input de ID
     public function storeWithId(Request $request)
     {
+        if (! in_array(auth()->user()->role, ['admin', 'librarian'])) {
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        }
+
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'publisher_id' => 'required|exists:publishers,id',
@@ -29,12 +37,11 @@ class BookController extends Controller
         ]);
         $bookData = $validated;
 
-        if ($request->hasFile('cover_image')){
+        if ($request->hasFile('cover_image')) {
 
             $path = $request->file('cover_image')->store('covers', 'public');
             $bookData['cover_image'] = $path;
-        }
-        else{
+        } else {
             $bookData['cover_image'] = null;
         }
 
@@ -46,6 +53,10 @@ class BookController extends Controller
     // Formulário com input select
     public function createWithSelect()
     {
+        if (! in_array(auth()->user()->role, ['admin', 'librarian'])) {
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        }
+
         $publishers = Publisher::all();
         $authors = Author::all();
         $categories = Category::all();
@@ -57,6 +68,10 @@ class BookController extends Controller
     // Salvar livro com input select
     public function storeWithSelect(Request $request)
     {
+        if ( !in_array( auth()->user()->role, ['admin', 'librarian'])){
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        };
+      
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'publisher_id' => 'required|exists:publishers,id',
@@ -66,12 +81,11 @@ class BookController extends Controller
         ]);
         $bookData = $validated;
 
-        if ($request->hasFile('cover_image')){
+        if ($request->hasFile('cover_image')) {
 
             $path = $request->file('cover_image')->store('covers', 'public');
             $bookData['cover_image'] = $path;
-        }
-        else{
+        } else {
             $bookData['cover_image'] = null;
         }
 
@@ -83,6 +97,11 @@ class BookController extends Controller
 
     public function edit(Book $book)
     {
+        if ( !in_array( auth()->user()->role, ['admin', 'librarian'])){
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        };
+      
+
         $publishers = Publisher::all();
         $authors = Author::all();
         $categories = Category::all();
@@ -93,6 +112,11 @@ class BookController extends Controller
 
     public function update(Request $request, Book $book)
     {
+        if ( !in_array( auth()->user()->role, ['admin', 'librarian'])){
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        };
+      
+
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'publisher_id' => 'required|exists:publishers,id',
@@ -102,11 +126,11 @@ class BookController extends Controller
         ]);
 
         $bookData = $validated;
-        
+
         // lógica de troca de imagem
         $path = $book->cover_image;
-        if ($request->hasFile('cover_image')){
-            
+        if ($request->hasFile('cover_image')) {
+
             $book->deleteCoverImage();
             $path = $request->file('cover_image')->store('covers', 'public');
         }
@@ -128,6 +152,7 @@ class BookController extends Controller
         return view('books.show', compact('book', 'users'));
 
     }
+
     public function index()
     {
         // Carregar os livros com autores usando eager loading e paginação
@@ -136,13 +161,17 @@ class BookController extends Controller
         return view('books.index', compact('books'));
 
     }
+
     public function destroy(Book $book)
     {
+        if ( !in_array( auth()->user()->role, ['admin', 'librarian'])){
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        };
+      
+
         $book->deleteCoverImage();
         $book->delete();
 
         return redirect()->route('books.index')->with('success', 'Livro excluído com sucesso.');
     }
-
-
 }

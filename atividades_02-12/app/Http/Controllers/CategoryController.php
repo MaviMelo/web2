@@ -12,6 +12,10 @@ class categoryController extends Controller
      */
     public function index()
     {
+        if (! in_array(auth()->user()->role, ['admin', 'librarian'])) {
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        }
+
         $categories = Category::all();
         return view ('categories.index', compact('categories'));
     }
@@ -21,6 +25,10 @@ class categoryController extends Controller
      */
     public function create()
     {
+        if (! in_array(auth()->user()->role, ['admin', 'librarian'])) {
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        }
+
         return view ('categories.create');
     }
 
@@ -29,6 +37,10 @@ class categoryController extends Controller
      */
     public function store(Request $request)
     {
+        if (! in_array(auth()->user()->role, ['admin', 'librarian'])) {
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        }
+
         $request->validate([
             'name' => 'required|string|unique:categories|max:255',
         ]);
@@ -44,6 +56,10 @@ class categoryController extends Controller
      */
     public function show(Category $category)
     {
+        if (! in_array(auth()->user()->role, ['admin', 'librarian'])) {
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        }
+
         return view ('categories.show', compact('category'));
     }
 
@@ -52,6 +68,10 @@ class categoryController extends Controller
      */
     public function edit(Category $category)
     {
+        if (! in_array(auth()->user()->role, ['admin', 'librarian'])) {
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        }
+
         return view('categories.edit', compact('category'));
     }
 
@@ -60,6 +80,10 @@ class categoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
+        if (! in_array(auth()->user()->role, ['admin', 'librarian'])) {
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        }
+
         $request->validate([
             'name' => 'required|string|unique:categories,name,' . $category->id . '|max:255',
         ]);
@@ -74,6 +98,10 @@ class categoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        if (! in_array(auth()->user()->role, ['admin', 'librarian'])) {
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        }
+
         $category->delete();
 
         return redirect()->route('categories.index')->with('success', 'Categoria deletada com sucesso.');

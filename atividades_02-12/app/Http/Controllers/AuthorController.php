@@ -12,6 +12,10 @@ class AuthorController extends Controller
      */
     public function index()
     {
+        if (! in_array(auth()->user()->role, ['admin', 'librarian'])) {
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        }
+
         $authors = Author::all();
         return view ('authors.index', compact('authors'));
     }
@@ -21,6 +25,10 @@ class AuthorController extends Controller
      */
     public function create()
     {
+        if (! in_array(auth()->user()->role, ['admin', 'librarian'])) {
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        }
+
         return view('authors.create');
     }
 
@@ -29,6 +37,10 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
+        if (! in_array(auth()->user()->role, ['admin', 'librarian'])) {
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        }
+
         $request->validate([
             'name' => 'required|string|max:255|unique:authors,name',
             'birth_date' => 'nullable|date',
@@ -43,6 +55,10 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
+        if (! in_array(auth()->user()->role, ['admin', 'librarian'])) {
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        }
+
         return view ('authors.show', compact('author'));
     }
 
@@ -51,6 +67,10 @@ class AuthorController extends Controller
      */
     public function edit(Author $author)
     {
+        if (! in_array(auth()->user()->role, ['admin', 'librarian'])) {
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        }
+
         return view ('authors.edit', compact('author'));
     }
 
@@ -59,6 +79,10 @@ class AuthorController extends Controller
      */
     public function update(Request $request, Author $author)
     {
+        if (! in_array(auth()->user()->role, ['admin', 'librarian'])) {
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        }
+
         $request->validate([
             'name' => 'required|string|max:255|unique:authors,name,'.$author->id,
             'birth_date' => 'nullable|date'
@@ -72,6 +96,10 @@ class AuthorController extends Controller
      */
     public function destroy(Author $author)
     {
+        if (! in_array(auth()->user()->role, ['admin', 'librarian'])) {
+            abort(403, 'Acesso não autorizado. Apenas funcionários.');
+        }
+
         $author->delete();
         return redirect()->route('authors.index');
     }
