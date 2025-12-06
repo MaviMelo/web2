@@ -14,7 +14,7 @@
 
 </head>
 
-<nav>
+<nav class="header">
     <h2>Atividade 02</h2>
     <div>
         <a href="{{ url('/') }}">Home </a>
@@ -28,53 +28,64 @@
 </nav>
 
 <body>
+
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     <h1>Adicionar Resgistro de Home Office</h1>
     <div>
         <form class="form" action="{{ route('home_offices.store') }}" method="POST">
             @csrf
-        <div>
-            <label for="collaborator">Nome do colaborador:</label>
-            <input type="text" placeholder="preencha os dados." id="collaborator" name="collaborator" required>
-        </div>
+            <div>
+                <label for="collaborator">Nome do colaborador:</label>
+                <input type="text" placeholder="preencha os dados." id="collaborator" name="collaborator" required>
+            </div>
 
-        <div>
-            <label for="address">Endereço: </label>
-            <input type="text" placeholder="preencha os dados." id="address" name="address" required>
-        </div>
-        
-        <div>
-            <label for="function">Descrição de função: </label>
-            <textarea name="function" id='function' rows="4" cols="50" placeholder="Descreva a função de cargo" required> Cargo: {{"\n"}} Função: {{"\n"}} Observações: {{ old('function') }} </textarea>
-            
             <div>
-                <label for="salary">Valor da remuneração: </label>
-                <input type="number" step='0.01' placeholder="preencha os dados." id="salary" name="salary" required>
+                <label for="address">Endereço: </label>
+                <input type="text" placeholder="preencha os dados." id="address" name="address" required>
             </div>
-            
+
             <div>
-                <label for="date_of_birth"> Data de nascimento: </label>
-                <input type="date" placeholder="preencha os dados." id="date_of_birth" name="date_of_birth" required>
-            </div>
-            
-            <button type="submit" class="btn">
-                Salvar <i class="bi bi-send"></i>
-            </button>
+                <label for="function">Descrição de função: </label>
+                <textarea name="function" id='function' rows="4" cols="50" placeholder="Descreva a função de cargo"
+                    required> Cargo: {{ "\n" }} Função: {{ "\n" }} Observações: {{ old('function') }} </textarea>
+
+                <div>
+                    <label for="salary">Valor da remuneração: </label>
+                    <input type="number" step='0.01' placeholder="preencha os dados." id="salary" name="salary"
+                        required>
+                </div>
+
+                <div>
+                    <label for="date_of_birth"> Data de nascimento: </label>
+                    <input type="date" placeholder="preencha os dados." id="date_of_birth" name="date_of_birth"
+                        required>
+                </div>
+
+                <button type="submit" class="btn">
+                    Salvar <i class="bi bi-send"></i>
+                </button>
 
         </form>
-        @if($data_object)
-        <div class="card">
-            <p>
-                Último geristro: <br> 
-                <strong>ID:</strong> {{ $data_object->id}} <br>
-            <strong>Collaborador:</strong> {{ $data_object->collaborator}}
-        </p>
-        <a href="{{ route('home_offices.show', $data_object) }}">Visualizar</a>
-    
-        </div>
+        @if ($data_object)
+            <div class="card">
+                <p>
+                    Último geristro: <br>
+                    <strong>ID:</strong> {{ $data_object->id }} <br>
+                    <strong>Collaborador:</strong> {{ $data_object->collaborator }}
+                </p>
+                <a href="{{ route('home_offices.show', $data_object) }}">Visualizar</a>
+
+            </div>
         @endif
     </div>
-        
-    
+
+
 </body>
 
 </html>

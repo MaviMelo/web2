@@ -14,7 +14,7 @@
 </head>
 <body>
 
-    <nav>
+    <nav class="header">
         <h2>Atividade 02</h2>
         <div>
             <a href="{{ url('/') }}">Home </a>
@@ -27,6 +27,7 @@
             </div>
         </div>
     </nav>
+    
     <h1>Atulizar Resgistro de Home Office</h1>
     <form class="form" action="{{ route('home_offices.update', $home_office) }}" method="POST">
         @csrf

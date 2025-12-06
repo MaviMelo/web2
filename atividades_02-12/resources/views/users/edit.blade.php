@@ -20,6 +20,18 @@
                     value="{{ old('email', $user->email) }}" required>
             </div>
 
+            @if(auth()->user()->role ==='admin')
+            <div class="mb-3">
+                <label for="role" class="form-label">Tipo de usuário</label>
+                <select name="role" id="role" class="form-control">
+                    <option value="{{ old('role', $user->role) }}" >Atualmente: {{ old('role', $user->role) }}</option>
+                    <option value="client">Cliente (client)</option>
+                    <option value="librarian">Bibliotecário (librarian)</option>
+                    <option value="admin">Administrador (Admin)</option>
+                </select>
+            </div>
+            @endif
+            
             <button type="submit" class="btn btn-success">Salvar</button>
             <a href="{{ route('users.index') }}" class="btn btn-secondary">Cancelar</a>
         </form>

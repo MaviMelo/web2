@@ -14,7 +14,7 @@
 
 <body>
 
-    <nav>
+    <nav class="header">
         <h2>Atividade 02</h2>
         <div>
             <a href="{{ url('/') }}">Home </a>

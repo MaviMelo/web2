@@ -1,1 +1,3 @@
 Comandos:
+ 
+php artisan make:component Layout            #Cria a estrutura base da página. Gera um arquivo em resources/views/components/layout.blade.php

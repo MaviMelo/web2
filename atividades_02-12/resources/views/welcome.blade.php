@@ -15,11 +15,18 @@
 </head>
 
 <body>
+    @include('components.header')
 
     <h1>Tecnologia de Sistemas Para Internet</h1>
     <h3>IFPE</h3>
     <h3>Disciplina: Desenvolvimento WEB II</h3>
 
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
 
     <main>
 
@@ -321,7 +328,8 @@
             <p>
                 Nesta atividade você deve permitir que o usuário faça upload de uma imagem de capa para o livro ao
                 cadastrar um novo livro.
-                Verifique a documentação do sistema de arquivos do Laravel: <a href="https://laravel.com/docs/12.x/filesystem">File Storage</a>
+                Verifique a documentação do sistema de arquivos do Laravel: <a
+                    href="https://laravel.com/docs/12.x/filesystem">File Storage</a>
                 <br><br>
 
                 Lembre dos seguintes pontos:
@@ -344,7 +352,7 @@
                     </p>
                 </li>
                 <li>
-               <p>
+                    <p>
                         Ver todos os registros dessa atividade no GitHub (Commit):
                         <a href="https://github.com/MaviMelo/web2/commit/73c48a01d03c64a5d110ae7fc3dc7e9eda1b520b"
                             target="_blank">

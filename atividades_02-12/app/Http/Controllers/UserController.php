@@ -32,8 +32,16 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
-        $user->update($request->only('name', 'email'));
+        // $user->update($request->only('name', 'email', ' role'));
 
-        return redirect()->route('users.index')->with('sucsess', 'Dados do usuário atulaizados com Sucesso.');
+        $validate = $request->validate([
+            'name'=>'required|string|max:255',
+            'email'=>'required|email|unique:users,email,' . $user->id,
+            'role'=>'required|in:admin,librarian,client' // Só aceita esses valores (ENUM do Banco de dados). 
+        ]);
+
+        $user->update($validate);
+
+        return redirect()->route('users.index')->with('success', 'Dados do usuário atulaizados com Sucesso.');
     }
 }

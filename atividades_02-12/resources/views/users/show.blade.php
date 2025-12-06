@@ -10,8 +10,10 @@
             </div>
             <div class="card-body">
                 <p><strong>Email:</strong> {{ $user->email }}</p>
+                <p> <strong>Tipo de Usuário:</strong> {{ $user->role }}</p>
             </div>
         </div>
+
 
         <a href="{{ route('users.index') }}" class="btn btn-secondary mt-3">
             <i class="bi bi-arrow-left"></i> Voltar

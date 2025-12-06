@@ -278,7 +278,7 @@
 
  /* ------ Mav Bar ------*/
 
- nav {
+ .header {
      background-image: linear-gradient(to top, #3dff54c7, rgb(91, 162, 255));
      position: fixed;
      top: 0;
