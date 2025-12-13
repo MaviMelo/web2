@@ -26,11 +26,9 @@ class BorrowingController extends Controller
             'user_id' => 'required|exists:users,id',
         ]);
 
-        // $root = $request->root();  // retorna o host e a porta, tipo: "https://localhost:8000".
-
-        if (Borrowing::where('book_id', $book->id)->whereNull('returned_at')->exists()) {
-            echo '<script>alert("Este livro já está emprestado. Não é possível um novo empréstimo. Veja as pendências do Livro: '.$book->title.'"); window.history.back();</script>';
-            exit;
+        if (Borrowing::where('user_id', $request->user_id)->whereNull('returned_at')->exists()) {
+       echo '<script>alert("Usuário tem devolução de livro(s) pendente(s)! Não é permitido novos empréstimos. Veja as pendências do usuário."); window.history.back();</script>';
+        exit;
         };
 
         Borrowing::create([
@@ -51,7 +49,7 @@ registrado com sucesso.');
         }
 
         $borrowing->update(['returned_at' => now(),
-            ]);
+        ]);
 
         return redirect()->route('books.show', $borrowing->book_id)->with('success', 'Devolução registrada com sucesso.');
     }
