@@ -1,4 +1,5 @@
 <?php
+
 /**
  * controlador BorrowingController implementa as funções necessárias para registrar empréstimos e devoluções de livros.
  */
@@ -9,14 +10,13 @@ use App\Models\Book;
 use App\Models\Borrowing;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Policies\BorrowingPolicy;
 
 class BorrowingController extends Controller
 {
     public function store(Request $request, Book $book)
     {
 
-        // dd( auth()->user(), $request->all(), $book );
+        //  dd( /* auth()->user() ,*/ $request->all(), $book  );
 
         if (! in_array(auth()->user()->role, ['admin', 'librarian'])) {
             abort(403, 'Acesso não autorizado. Apenas funcionários.');
@@ -31,7 +31,15 @@ class BorrowingController extends Controller
         if (Borrowing::where('book_id', $book->id)->whereNull('returned_at')->exists()) {
             echo '<script>alert("Este livro já está emprestado. Não é possível um novo empréstimo. Veja as pendências do Livro: '.$book->title.'"); window.history.back();</script>';
             exit;
-        };
+        }
+
+        $borrowingCount = Borrowing::where('user_id', $request->user_id)->where('returned_at', null)->count();    // Conta quantos registros de emprestimos tem associado ao ID do usuário/cliente
+
+        // limitar os eprestimos de livros até cinco livros por cliente/usuário.
+        if ($borrowingCount >= 5) {
+            echo '<script>alert("Este Usuário ( ID: '.$request->user_id.') já atingiu o número máximo de pendências de devolução de livros (máximo: 5 livros). Não é possível um novo empréstimo. Veja as pendências do Usuério."); window.history.back();</script>';
+            exit;
+        }
 
         Borrowing::create([
             'user_id' => $request->user_id,
@@ -43,7 +51,6 @@ class BorrowingController extends Controller
 registrado com sucesso.');
     }
 
-
     public function returnBook(Borrowing $borrowing)
     {
         if (! in_array(auth()->user()->role, ['admin', 'librarian'])) {
@@ -51,7 +58,7 @@ registrado com sucesso.');
         }
 
         $borrowing->update(['returned_at' => now(),
-            ]);
+        ]);
 
         return redirect()->route('books.show', $borrowing->book_id)->with('success', 'Devolução registrada com sucesso.');
     }
@@ -62,5 +69,4 @@ registrado com sucesso.');
 
         return view('users.borrowings', compact('user', 'borrowings'));
     }
-
 }
