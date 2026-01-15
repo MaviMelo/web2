@@ -11,6 +11,10 @@
             <div class="card-body">
                 <p><strong>Email:</strong> {{ $user->email }}</p>
                 <p> <strong>Tipo de Usuário:</strong> {{ $user->role }}</p>
+                <p> <strong>Saldo de Multas (R$):</strong> {{ $user->debit }}</p>
+                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning mt-3">
+                    Editar dados / Fazer Pagamentos
+                </a>
             </div>
         </div>
 

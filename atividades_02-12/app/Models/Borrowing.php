@@ -11,7 +11,12 @@ class Borrowing extends Model
     use HasFactory;
 
     /** @var Campos que podem ser preenchidos */
-    protected $fillable =['user_id', 'book_id', 'borrowed_at', 'returned_at'];
+    protected $fillable =[
+        'user_id',
+        'book_id',
+        'borrowed_at',
+        'returned_at'
+    ];
 
     /** @public relacionamento com o Model User */
     public function user()

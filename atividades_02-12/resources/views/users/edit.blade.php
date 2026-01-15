@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="my-4">Editar Usuário</h1>
+        <h1 class="my-4">Editar Dados do Usuário</h1>
 
         <form action="{{ route('users.update', $user) }}" method="POST">
             @method('PUT')
