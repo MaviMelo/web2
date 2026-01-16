@@ -9,8 +9,8 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Borrowing;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class BorrowingController extends Controller
 {
@@ -30,10 +30,20 @@ class BorrowingController extends Controller
         // $root = $request->root();  // retorna o host e a porta, tipo: "https://localhost:8000".
 
         if (Borrowing::where('book_id', $book->id)->whereNull('returned_at')->exists()) {
-            echo '<script>alert("Este livro já está emprestado. Não é possível um novo empréstimo. Veja as pendências do Livro: '.$book->title.'"); window.history.back();</script>';
-            exit;
+            // echo '<script>
+            // alert("Este livro já está emprestado. Não é possível um novo empréstimo. Veja as pendências do Livro: '.$book->title.'"); window.history.back();
+            // </script>';
+            
+            // return redirect()->back()->with('error', 'Este livro já está emprestado. Não é possível um novo empréstimo. Veja as pendências do Livro: '.$book->title.'');
+            return(
+                '<script>
+                    alert("Este livro já está emprestado. Não é possível um novo empréstimo. Veja as pendências do Livro: '.$book->title.'"); 
+                    
+                    window.history.back();
+                </script>'
+            );
         }
-
+            
         $borrowingCount = Borrowing::where('user_id', $request->user_id)
             ->where('returned_at', null)->count();    // Conta quantos registros de emprestimos tem associado ao ID do usuário/cliente
 
@@ -41,16 +51,35 @@ class BorrowingController extends Controller
 
         // limitar os eprestimos de livros até cinco livros por cliente/usuário.
         if ($borrowingCount >= 5) {
-            echo '<script>alert("Este Usuário (nome: '.$user->name.') já atingiu o número máximo de pendências de devolução de livros (máximo: 5 livros). Não é possível um novo empréstimo. Veja as pendências do Usuério."); window.history.back();</script>';
-            exit;
-        }else if($user->debit > 0){
-            echo '<script> alert ("
-                O usuário '.$user->name.' tem pendências de multas a serem quitadas (R$ '.$user->debit.'). Resolva as pendências entes de um novo empréstimo.
-            "); window.history.back();  </script>';
-            exit;
+            exit(                
+                '<script>
+                
+                    if (confirm("Este Usuário (nome: '.$user->name.') já atingiu o número máximo de pendências de devolução de livros (máximo: 5 livros). Não é possível um novo empréstimo. Click em \\"OK\\" Veja as pendências do Usuério.")){
+                    
+                    window.location.href = "'.route('users.show', $request->user_id).'";
+                
+                    }else{
+                        window.history.back();
+                    }
+                
+                </script>'
+                );
+                }
+                
+        if($user->debit > 0){
+            // dd($request, $book);
+            $user = User::find($request->user_id);
+            exit(                
+                '<script> 
+                    if (confirm("O usuário '.$user->name.' tem pendências de multas a serem quitadas (R$ '.$user->debit.'). Resolva as pendências entes de um novo empréstimo. \\n Click em \\"OK\\" para ver/editar as pendências do Usuário.")){
+                        window.location.href = "'.route('users.show', $request->user_id).'";
+                    }else{  
+                        window.history.back();
+                    }  
+                </script>'
+            );
         };
-
-        
+     
         Borrowing::create([
             'user_id' => $request->user_id,
             'book_id' => $book->id,

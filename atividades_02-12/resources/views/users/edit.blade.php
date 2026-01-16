@@ -20,6 +20,15 @@
                     value="{{ old('email', $user->email) }}" required>
             </div>
 
+            <div class="mb-3">
+                <label for="payment" class="form-label">Saldo de Multas (R$): <strong>{{$user->debit}}</strong></label>
+                
+                <p><strong>Registrar Pagamento (R$):</strong></p>
+                <input type="number" step="0.01" class="form-control" id="payment" name="payment" min="0" max="{{$user->debit}}" placeholder="Digite o valor do pagamento aqui.">
+                
+                <p>* O sistema permite apenas pagamentos de valor máximo igual ao saldo da multa/dívida. Não permite registro de créditos.</p>
+            </div>
+
             @if(auth()->user()->role ==='admin')
             <div class="mb-3">
                 <label for="role" class="form-label">Tipo de usuário</label>

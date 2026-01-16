@@ -54,11 +54,17 @@ class UserController extends Controller
         $validate = $request->validate([
             'name'=>'required|string|max:255',
             'email'=>'required|email|unique:users,email,' . $user->id,
-            // 'role'=>'required|in:admin,librarian,client' // Só aceita esses valores (ENUM do Banco de dados). 
+            'payment'=>'nullable|numeric|min:0|max:'.$user->debit,
+            'role'=>'nullable|string|in:admin,librarian,client' // Só aceita esses valores (ENUM do Banco de dados). 
         ]);
 
-        $user->update($validate);
+        $user->name = $validate['name'];
+        $user->email = $validate['email'];
+        $user->debit -= $validate['payment'];
+        $user->role = $validate['role'];
 
-        return redirect()->route('users.index')->with('success', 'Dados do usuário atulaizados com Sucesso.');
+        $user->save();
+
+        return redirect()->route('users.index')->with('success', '<html> Dados do usuário <a href="'.route('users.show', $user->id).'">'. e($user->name) .'</a> atualizados com Sucesso.</html>');
     }
-}
+};

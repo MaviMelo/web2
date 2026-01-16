@@ -62,3 +62,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('books', BookController::class)->except(['create', 'store']);
     
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
